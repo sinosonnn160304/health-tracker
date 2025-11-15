@@ -58,7 +58,7 @@ fun NoInternetScreen(
                 color = Color(0xFFB6D8B5),
                 fontSize = 16.sp,
                 lineHeight = 22.sp,
-                textAlign = TextAlign.Center // Thêm dòng này để căn giữa
+                textAlign = TextAlign.Center 
             )
 
             Spacer(modifier = Modifier.height(30.dp))
