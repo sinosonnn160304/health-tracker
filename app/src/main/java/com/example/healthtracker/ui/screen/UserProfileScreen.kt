@@ -11,6 +11,8 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.outlined.ExitToApp
+import androidx.compose.material.icons.outlined.LightMode
+import androidx.compose.material.icons.outlined.DarkMode
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -35,7 +37,9 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 fun UserProfileScreen(
     loginViewModel: LoginViewModel = viewModel(),
     onLogout: () -> Unit,
-    onNavigateBack: () -> Unit = {}
+    onNavigateBack: () -> Unit = {},
+    isDarkMode: Boolean = false,
+    onThemeChange: (Boolean) -> Unit = {}
 ) {
     val context = LocalContext.current
 
@@ -216,6 +220,77 @@ fun UserProfileScreen(
 
                     Spacer(modifier = Modifier.height(24.dp)) // Giảm khoảng cách giữa 2 card
 
+                    // THEME TOGGLE CARD
+                    Card(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .shadow(
+                                elevation = 8.dp,
+                                shape = MaterialTheme.shapes.medium,
+                                clip = true
+                            ),
+                        colors = CardDefaults.cardColors(
+                            containerColor = Color.White
+                        ),
+                        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
+                    ) {
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(horizontal = 20.dp, vertical = 20.dp),
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Box(
+                                modifier = Modifier
+                                    .size(40.dp)
+                                    .background(
+                                        color = Color(0xFFE3F2FD),
+                                        shape = CircleShape
+                                    ),
+                                contentAlignment = Alignment.Center
+                            ) {
+                                Icon(
+                                    imageVector = if (isDarkMode) Icons.Outlined.DarkMode else Icons.Outlined.LightMode,
+                                    contentDescription = "Theme",
+                                    tint = Color(0xFF2196F3),
+                                    modifier = Modifier.size(20.dp)
+                                )
+                            }
+
+                            Spacer(modifier = Modifier.width(16.dp))
+
+                            Column(
+                                modifier = Modifier.weight(1f)
+                            ) {
+                                Text(
+                                    "Theme",
+                                    fontSize = 16.sp,
+                                    fontWeight = FontWeight.SemiBold,
+                                    color = Color(0xFF424242)
+                                )
+                                Text(
+                                    if (isDarkMode) "Dark mode" else "Light mode",
+                                    fontSize = 12.sp,
+                                    color = Color(0xFF757575)
+                                )
+                            }
+
+                            // Toggle switch
+                            Switch(
+                                checked = isDarkMode,
+                                onCheckedChange = onThemeChange,
+                                colors = SwitchDefaults.colors(
+                                    checkedThumbColor = Color.White,
+                                    checkedTrackColor = Color(0xFF2196F3),
+                                    uncheckedThumbColor = Color.White,
+                                    uncheckedTrackColor = Color(0xFFBDBDBD)
+                                )
+                            )
+                        }
+                    }
+
+                    Spacer(modifier = Modifier.height(16.dp))
+
                     // LOGOUT CARD BUTTON
                     Card(
                         onClick = {
@@ -276,7 +351,7 @@ fun UserProfileScreen(
                     }
                 }
 
-                // INFO TEXT - Ở dưới cùng
+                // INFO TEXT
                 Text(
                     text = "Health Tracker v1.0",
                     fontSize = 12.sp,
