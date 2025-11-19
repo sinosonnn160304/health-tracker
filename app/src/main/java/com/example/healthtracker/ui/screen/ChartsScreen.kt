@@ -8,6 +8,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
+import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.TabRowDefaults.tabIndicatorOffset
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -101,7 +102,8 @@ fun ChartsScreen(
                                 )
                             },
                             selectedContentColor = Color(0xFF2E7D32),
-                            unselectedContentColor = Color(0xFF757575)
+                            unselectedContentColor = MaterialTheme.colorScheme.onSurfaceVariant
+
                         )
                     }
                 }
@@ -184,7 +186,7 @@ private fun WeeklyCharts(
                 shape = MaterialTheme.shapes.large
             ),
         colors = CardDefaults.cardColors(
-            containerColor = Color.White
+            containerColor = MaterialTheme.colorScheme.surface
         )
     ) {
         Column(
@@ -212,7 +214,7 @@ private fun WeeklyCharts(
                     text = "Calorie Trend (Last 7 Days)",
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.Bold,
-                    color = Color(0xFF424242)
+                    color = MaterialTheme.colorScheme.onSurface
                 )
             }
             Spacer(modifier = Modifier.height(20.dp))
@@ -229,7 +231,7 @@ private fun WeeklyCharts(
                             text = days[index],
                             modifier = Modifier.width(40.dp),
                             style = MaterialTheme.typography.bodyMedium,
-                            color = Color(0xFF424242),
+                            color = MaterialTheme.colorScheme.onSurface,
                             fontWeight = FontWeight.Medium
                         )
                         LinearProgressIndicator(
@@ -249,7 +251,7 @@ private fun WeeklyCharts(
                             text = "$calories cal",
                             style = MaterialTheme.typography.bodyMedium,
                             modifier = Modifier.width(60.dp),
-                            color = Color(0xFF424242),
+                            color = MaterialTheme.colorScheme.onSurface,
                             fontWeight = FontWeight.Medium
                         )
                     }
@@ -268,20 +270,20 @@ private fun WeeklyCharts(
                     Text(
                         text = "Average",
                         style = MaterialTheme.typography.bodySmall,
-                        color = Color(0xFF757575)
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
                     Text(
                         text = "${calorieData.average().toInt()} cal",
                         style = MaterialTheme.typography.titleMedium,
                         fontWeight = FontWeight.Bold,
-                        color = Color(0xFF424242)
+                        color = MaterialTheme.colorScheme.onSurface
                     )
                 }
                 Column(horizontalAlignment = Alignment.End) {
                     Text(
                         text = "Daily Goal",
                         style = MaterialTheme.typography.bodySmall,
-                        color = Color(0xFF757575)
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
                     Text(
                         text = "${goal?.dailyCalorieGoal ?: 2000} cal",
@@ -303,7 +305,7 @@ private fun WeeklyCharts(
                 shape = MaterialTheme.shapes.large
             ),
         colors = CardDefaults.cardColors(
-            containerColor = Color.White
+            containerColor = MaterialTheme.colorScheme.surface
         )
     ) {
         Column(
@@ -331,7 +333,7 @@ private fun WeeklyCharts(
                     text = "Macro Distribution",
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.Bold,
-                    color = Color(0xFF424242)
+                    color = MaterialTheme.colorScheme.onSurface
                 )
             }
             Spacer(modifier = Modifier.height(20.dp))
@@ -350,7 +352,7 @@ private fun WeeklyCharts(
                     Text(
                         text = "No macro data for this week",
                         style = MaterialTheme.typography.bodyMedium,
-                        color = Color(0xFF757575),
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
                         modifier = Modifier.padding(vertical = 16.dp)
                     )
                 }
@@ -367,7 +369,7 @@ private fun WeeklyCharts(
                 shape = MaterialTheme.shapes.large
             ),
         colors = CardDefaults.cardColors(
-            containerColor = Color.White
+            containerColor = MaterialTheme.colorScheme.surface
         )
     ) {
         Column(
@@ -395,7 +397,7 @@ private fun WeeklyCharts(
                     text = "Activity Summary",
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.Bold,
-                    color = Color(0xFF424242)
+                    color = MaterialTheme.colorScheme.onSurface
                 )
             }
             Spacer(modifier = Modifier.height(20.dp))
@@ -426,40 +428,46 @@ private fun MonthlyCharts(
                 shape = MaterialTheme.shapes.large
             ),
         colors = CardDefaults.cardColors(
-            containerColor = Color.White
+            containerColor = MaterialTheme.colorScheme.surface
         )
     ) {
-        Column(
-            modifier = Modifier.padding(40.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(40.dp),
+            contentAlignment = Alignment.Center
         ) {
-            Box(
-                modifier = Modifier
-                    .size(80.dp)
-                    .clip(CircleShape)
-                    .background(Color(0xFFE8F5E8)),
-                contentAlignment = Alignment.Center
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Icon(
-                    imageVector = Icons.Default.Event,
-                    contentDescription = null,
-                    modifier = Modifier.size(36.dp),
-                    tint = Color(0xFF4CAF50)
+                Box(
+                    modifier = Modifier
+                        .size(80.dp)
+                        .clip(CircleShape)
+                        .background(Color(0xFFE8F5E8)),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.Event,
+                        contentDescription = null,
+                        modifier = Modifier.size(36.dp),
+                        tint = Color(0xFF4CAF50)
+                    )
+                }
+                Spacer(modifier = Modifier.height(20.dp))
+                Text(
+                    text = "Monthly Statistics",
+                    style = MaterialTheme.typography.titleLarge,
+                    fontWeight = FontWeight.Bold,
+                    color = MaterialTheme.colorScheme.onSurface
+                )
+                Spacer(modifier = Modifier.height(8.dp))
+                Text(
+                    text = "Coming soon!",
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
             }
-            Spacer(modifier = Modifier.height(20.dp))
-            Text(
-                text = "Monthly Statistics",
-                style = MaterialTheme.typography.titleLarge,
-                fontWeight = FontWeight.Bold,
-                color = Color(0xFF424242)
-            )
-            Spacer(modifier = Modifier.height(8.dp))
-            Text(
-                text = "Coming soon!",
-                style = MaterialTheme.typography.bodyMedium,
-                color = Color(0xFF757575)
-            )
         }
     }
 }
@@ -478,40 +486,46 @@ private fun YearlyCharts(
                 shape = MaterialTheme.shapes.large
             ),
         colors = CardDefaults.cardColors(
-            containerColor = Color.White
+            containerColor = MaterialTheme.colorScheme.surface
         )
     ) {
-        Column(
-            modifier = Modifier.padding(40.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(40.dp),
+            contentAlignment = Alignment.Center
         ) {
-            Box(
-                modifier = Modifier
-                    .size(80.dp)
-                    .clip(CircleShape)
-                    .background(Color(0xFFE8F5E8)),
-                contentAlignment = Alignment.Center
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Icon(
-                    imageVector = Icons.Default.DateRange,
-                    contentDescription = null,
-                    modifier = Modifier.size(36.dp),
-                    tint = Color(0xFF4CAF50)
+                Box(
+                    modifier = Modifier
+                        .size(80.dp)
+                        .clip(CircleShape)
+                        .background(Color(0xFFE8F5E8)),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.DateRange,
+                        contentDescription = null,
+                        modifier = Modifier.size(36.dp),
+                        tint = Color(0xFF4CAF50)
+                    )
+                }
+                Spacer(modifier = Modifier.height(20.dp))
+                Text(
+                    text = "Yearly Statistics",
+                    style = MaterialTheme.typography.titleLarge,
+                    fontWeight = FontWeight.Bold,
+                    color = MaterialTheme.colorScheme.onSurface
+                )
+                Spacer(modifier = Modifier.height(8.dp))
+                Text(
+                    text = "Coming soon!",
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
             }
-            Spacer(modifier = Modifier.height(20.dp))
-            Text(
-                text = "Yearly Statistics",
-                style = MaterialTheme.typography.titleLarge,
-                fontWeight = FontWeight.Bold,
-                color = Color(0xFF424242)
-            )
-            Spacer(modifier = Modifier.height(8.dp))
-            Text(
-                text = "Coming soon!",
-                style = MaterialTheme.typography.bodyMedium,
-                color = Color(0xFF757575)
-            )
         }
     }
 }
@@ -532,24 +546,25 @@ private fun MacroBar(
                 text = label,
                 style = MaterialTheme.typography.bodyMedium,
                 fontWeight = FontWeight.Medium,
-                color = Color(0xFF424242)
+                color = MaterialTheme.colorScheme.onSurface
             )
             Text(
                 text = "${value.toInt()}g (${(value / total * 100).toInt()}%)",
                 style = MaterialTheme.typography.bodyMedium,
-                color = Color(0xFF424242),
+                color = MaterialTheme.colorScheme.onSurface,
                 fontWeight = FontWeight.Medium
             )
         }
         Spacer(modifier = Modifier.height(8.dp))
         LinearProgressIndicator(
-            progress = value / total,
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(12.dp)
-                .clip(MaterialTheme.shapes.small),
-            color = color,
-            trackColor = Color(0xFFE0E0E0)
+        progress = { value / total },
+        modifier = Modifier
+                        .fillMaxWidth()
+                        .height(12.dp)
+                        .clip(MaterialTheme.shapes.small),
+        color = color,
+        trackColor = Color(0xFFE0E0E0),
+        strokeCap = ProgressIndicatorDefaults.LinearStrokeCap,
         )
     }
 }
@@ -583,12 +598,12 @@ private fun SummaryItem(
             text = value,
             style = MaterialTheme.typography.titleLarge,
             fontWeight = FontWeight.Bold,
-            color = Color(0xFF424242)
+            color = MaterialTheme.colorScheme.onSurface
         )
         Text(
             text = label,
             style = MaterialTheme.typography.bodySmall,
-            color = Color(0xFF757575)
+            color = MaterialTheme.colorScheme.onSurfaceVariant
         )
     }
 }

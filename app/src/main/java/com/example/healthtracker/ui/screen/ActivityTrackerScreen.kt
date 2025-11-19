@@ -99,13 +99,12 @@ fun ActivityTrackerScreen(
                             shape = MaterialTheme.shapes.large
                         ),
                     colors = CardDefaults.cardColors(
-                        containerColor = Color.White
+                        containerColor = MaterialTheme.colorScheme.surface
                     )
                 ) {
                     Column(
                         modifier = Modifier.padding(24.dp)
                     ) {
-                        // HÀNG NÀY CHỨA NGÀY THÁNG VÀ 2 NÚT MŨI TÊN
                         Row(
                             modifier = Modifier.fillMaxWidth(),
                             horizontalArrangement = Arrangement.SpaceBetween,
@@ -115,7 +114,7 @@ fun ActivityTrackerScreen(
                                 text = selectedDate.toString(),
                                 style = MaterialTheme.typography.titleLarge,
                                 fontWeight = FontWeight.Bold,
-                                color = Color(0xFF424242)
+                                color = MaterialTheme.colorScheme.onSurface
                             )
 
                             Row {
@@ -151,7 +150,7 @@ fun ActivityTrackerScreen(
                                 Text(
                                     text = "Calories Burned",
                                     style = MaterialTheme.typography.bodySmall,
-                                    color = Color(0xFF757575)
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant
                                 )
                                 Row(
                                     verticalAlignment = Alignment.CenterVertically
@@ -175,7 +174,7 @@ fun ActivityTrackerScreen(
                                         text = "$totalCaloriesBurned cal",
                                         style = MaterialTheme.typography.titleMedium,
                                         fontWeight = FontWeight.Bold,
-                                        color = Color(0xFF424242)
+                                        color = MaterialTheme.colorScheme.onSurface
                                     )
                                 }
                             }
@@ -183,7 +182,7 @@ fun ActivityTrackerScreen(
                                 Text(
                                     text = "Total Duration",
                                     style = MaterialTheme.typography.bodySmall,
-                                    color = Color(0xFF757575)
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant
                                 )
                                 Row(
                                     verticalAlignment = Alignment.CenterVertically
@@ -192,7 +191,7 @@ fun ActivityTrackerScreen(
                                         text = "$totalDuration min",
                                         style = MaterialTheme.typography.titleMedium,
                                         fontWeight = FontWeight.Bold,
-                                        color = Color(0xFF424242)
+                                        color = MaterialTheme.colorScheme.onSurface
                                     )
                                     Spacer(modifier = Modifier.width(8.dp))
                                     Box(
@@ -227,7 +226,7 @@ fun ActivityTrackerScreen(
                                 shape = MaterialTheme.shapes.large
                             ),
                         colors = CardDefaults.cardColors(
-                            containerColor = Color.White
+                            containerColor = MaterialTheme.colorScheme.surface
                         )
                     ) {
                         Column(
@@ -256,13 +255,13 @@ fun ActivityTrackerScreen(
                                 text = "No Activities Yet",
                                 style = MaterialTheme.typography.titleMedium,
                                 fontWeight = FontWeight.Bold,
-                                color = Color(0xFF424242)
+                                color = MaterialTheme.colorScheme.onSurface
                             )
                             Spacer(modifier = Modifier.height(8.dp))
                             Text(
                                 text = "Start tracking your activities to see them here",
                                 style = MaterialTheme.typography.bodyMedium,
-                                color = Color(0xFF757575),
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
                                 textAlign = androidx.compose.ui.text.style.TextAlign.Center
                             )
                         }

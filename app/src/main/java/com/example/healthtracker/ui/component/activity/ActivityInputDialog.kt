@@ -10,6 +10,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -42,14 +43,16 @@ fun ActivityInputDialog(
         onDismissRequest = onDismiss,
         properties = DialogProperties(usePlatformDefaultWidth = false)
     ) {
-        Surface(
+        Card(
             modifier = Modifier
-                .fillMaxWidth(0.95f)
-                .fillMaxHeight(0.85f)
-                .padding(16.dp),
-            shape = MaterialTheme.shapes.large,
-            color = Color.White,
-            shadowElevation = 16.dp
+                .fillMaxWidth()
+                .shadow(
+                    elevation = 8.dp,
+                    shape = MaterialTheme.shapes.large
+                ),
+            colors = CardDefaults.cardColors(
+                containerColor = MaterialTheme.colorScheme.surface
+            )
         ) {
             Column(
                 modifier = Modifier
@@ -64,7 +67,6 @@ fun ActivityInputDialog(
                     modifier = Modifier.padding(bottom = 24.dp)
                 )
 
-                // SỬ DỤNG LAZYCOLUMN
                 LazyColumn(
                     modifier = Modifier
                         .fillMaxWidth()
@@ -84,7 +86,7 @@ fun ActivityInputDialog(
                                 focusedBorderColor = Color(0xFF4CAF50),
                                 unfocusedBorderColor = Color(0xFFE0E0E0),
                                 focusedLabelColor = Color(0xFF4CAF50),
-                                unfocusedLabelColor = Color(0xFF757575)
+                                unfocusedLabelColor = MaterialTheme.colorScheme.onSurfaceVariant
                             )
                         )
                     }
@@ -110,7 +112,7 @@ fun ActivityInputDialog(
                                     focusedBorderColor = Color(0xFF4CAF50),
                                     unfocusedBorderColor = Color(0xFFE0E0E0),
                                     focusedLabelColor = Color(0xFF4CAF50),
-                                    unfocusedLabelColor = Color(0xFF757575)
+                                    unfocusedLabelColor = MaterialTheme.colorScheme.onSurfaceVariant
                                 )
                             )
                             ExposedDropdownMenu(
@@ -181,7 +183,7 @@ fun ActivityInputDialog(
                                 focusedBorderColor = Color(0xFF4CAF50),
                                 unfocusedBorderColor = Color(0xFFE0E0E0),
                                 focusedLabelColor = Color(0xFF4CAF50),
-                                unfocusedLabelColor = Color(0xFF757575)
+                                unfocusedLabelColor = MaterialTheme.colorScheme.onSurfaceVariant
                             )
                         )
                     }
@@ -201,7 +203,7 @@ fun ActivityInputDialog(
                                 focusedBorderColor = Color(0xFF4CAF50),
                                 unfocusedBorderColor = Color(0xFFE0E0E0),
                                 focusedLabelColor = Color(0xFF4CAF50),
-                                unfocusedLabelColor = Color(0xFF757575)
+                                unfocusedLabelColor = MaterialTheme.colorScheme.onSurfaceVariant
                             )
                         )
                     }
@@ -227,7 +229,7 @@ fun ActivityInputDialog(
                                     focusedBorderColor = Color(0xFF4CAF50),
                                     unfocusedBorderColor = Color(0xFFE0E0E0),
                                     focusedLabelColor = Color(0xFF4CAF50),
-                                    unfocusedLabelColor = Color(0xFF757575)
+                                    unfocusedLabelColor = MaterialTheme.colorScheme.onSurfaceVariant
                                 )
                             )
                             ExposedDropdownMenu(

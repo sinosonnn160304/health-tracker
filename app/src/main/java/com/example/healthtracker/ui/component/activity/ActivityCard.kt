@@ -25,14 +25,16 @@ fun ActivityCard(
 ) {
     var showDeleteDialog by remember { mutableStateOf(false) }
 
-    Surface(
+    Card(
         modifier = modifier
             .fillMaxWidth()
-            .shadow(4.dp, MaterialTheme.shapes.medium),
+            .shadow(
+                elevation = 4.dp,
+                shape = MaterialTheme.shapes.medium
+            ),
         onClick = onEdit,
-        color = Color.White,
-        shape = MaterialTheme.shapes.medium
-    )  {
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface)
+    ) {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
@@ -83,7 +85,7 @@ fun ActivityCard(
                     Text(
                         text = activity.activityType,
                         style = MaterialTheme.typography.labelMedium,
-                        color = Color(0xFF757575),
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
                         fontWeight = FontWeight.Medium
                     )
                 }
@@ -94,7 +96,7 @@ fun ActivityCard(
                     text = activity.activityName,
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.Bold,
-                    color = Color(0xFF424242)
+                    color = MaterialTheme.colorScheme.onSurface
                 )
 
                 Spacer(modifier = Modifier.height(12.dp))
@@ -151,7 +153,7 @@ fun ActivityCard(
                 Text(
                     "Delete Activity?",
                     fontWeight = FontWeight.Bold,
-                    color = Color(0xFF424242)
+                    color = MaterialTheme.colorScheme.onSurface
                 )
             },
             text = { Text("Are you sure you want to delete '${activity.activityName}'?") },
@@ -172,7 +174,7 @@ fun ActivityCard(
                 TextButton(
                     onClick = { showDeleteDialog = false },
                     colors = ButtonDefaults.textButtonColors(
-                        contentColor = Color(0xFF757575)
+                        contentColor = MaterialTheme.colorScheme.onSurfaceVariant
                     )
                 ) {
                     Text("Cancel", fontWeight = FontWeight.Medium)
@@ -202,7 +204,7 @@ private fun ActivityBadge(
             text = value,
             style = MaterialTheme.typography.bodySmall,
             fontWeight = FontWeight.Medium,
-            color = Color(0xFF424242)
+            color = MaterialTheme.colorScheme.onSurface
         )
     }
 }

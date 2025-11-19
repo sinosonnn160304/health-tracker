@@ -8,6 +8,7 @@ import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
@@ -25,7 +26,6 @@ fun MealInputDialog(
     onDismiss: () -> Unit,
     onSave: (Meal) -> Unit
 ) {
-    // SỬ DỤNG REMEMBER TRỰC TIẾP THAY VÌ CLASS - ĐẢM BẢO STATE ĐƯỢC CẬP NHẬT
     var foodName by remember { mutableStateOf(meal?.foodName ?: "") }
     var mealType by remember { mutableStateOf(meal?.mealType ?: "Breakfast") }
     var calories by remember { mutableStateOf(meal?.calories?.toString() ?: "") }
@@ -41,14 +41,16 @@ fun MealInputDialog(
         onDismissRequest = onDismiss,
         properties = DialogProperties(usePlatformDefaultWidth = false)
     ) {
-        Surface(
+        Card(
             modifier = Modifier
-                .fillMaxWidth(0.95f)
-                .fillMaxHeight(0.9f)
-                .padding(12.dp),
-            shape = MaterialTheme.shapes.large,
-            color = Color.White,
-            shadowElevation = 20.dp
+                .fillMaxWidth()
+                .shadow(
+                    elevation = 8.dp,
+                    shape = MaterialTheme.shapes.large
+                ),
+            colors = CardDefaults.cardColors(
+                containerColor = MaterialTheme.colorScheme.surface
+            )
         ) {
             Column(
                 modifier = Modifier
@@ -89,14 +91,14 @@ fun MealInputDialog(
                             },
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .height(68.dp),  // CAO HƠN
+                                .height(68.dp),
                             singleLine = true,
                             textStyle = MaterialTheme.typography.bodyLarge,
                             colors = OutlinedTextFieldDefaults.colors(
                                 focusedBorderColor = Color(0xFF4CAF50),
                                 unfocusedBorderColor = Color(0xFFE0E0E0),
                                 focusedLabelColor = Color(0xFF4CAF50),
-                                unfocusedLabelColor = Color(0xFF757575)
+                                unfocusedLabelColor = MaterialTheme.colorScheme.onSurfaceVariant
                             )
                         )
                     }
@@ -122,14 +124,14 @@ fun MealInputDialog(
                                 },
                                 modifier = Modifier
                                     .fillMaxWidth()
-                                    .height(68.dp)  // CAO HƠN
+                                    .height(68.dp)
                                     .menuAnchor(),
                                 textStyle = MaterialTheme.typography.bodyLarge,
                                 colors = OutlinedTextFieldDefaults.colors(
                                     focusedBorderColor = Color(0xFF4CAF50),
                                     unfocusedBorderColor = Color(0xFFE0E0E0),
                                     focusedLabelColor = Color(0xFF4CAF50),
-                                    unfocusedLabelColor = Color(0xFF757575)
+                                    unfocusedLabelColor = MaterialTheme.colorScheme.onSurfaceVariant
                                 )
                             )
                             ExposedDropdownMenu(
@@ -178,7 +180,7 @@ fun MealInputDialog(
                             },
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .height(68.dp),  // CAO HƠN
+                                .height(68.dp),
                             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                             singleLine = true,
                             textStyle = MaterialTheme.typography.bodyLarge,
@@ -186,7 +188,7 @@ fun MealInputDialog(
                                 focusedBorderColor = Color(0xFF4CAF50),
                                 unfocusedBorderColor = Color(0xFFE0E0E0),
                                 focusedLabelColor = Color(0xFF4CAF50),
-                                unfocusedLabelColor = Color(0xFF757575)
+                                unfocusedLabelColor = MaterialTheme.colorScheme.onSurfaceVariant
                             )
                         )
                     }
@@ -212,7 +214,7 @@ fun MealInputDialog(
                                 },
                                 modifier = Modifier
                                     .weight(1f)
-                                    .height(68.dp),  // CAO HƠN
+                                    .height(68.dp),
                                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                                 singleLine = true,
                                 textStyle = MaterialTheme.typography.bodyLarge,
@@ -220,7 +222,7 @@ fun MealInputDialog(
                                     focusedBorderColor = Color(0xFF4CAF50),
                                     unfocusedBorderColor = Color(0xFFE0E0E0),
                                     focusedLabelColor = Color(0xFF4CAF50),
-                                    unfocusedLabelColor = Color(0xFF757575)
+                                    unfocusedLabelColor = MaterialTheme.colorScheme.onSurfaceVariant
                                 )
                             )
                             OutlinedTextField(
@@ -238,7 +240,7 @@ fun MealInputDialog(
                                 },
                                 modifier = Modifier
                                     .weight(1f)
-                                    .height(68.dp),  // CAO HƠN
+                                    .height(68.dp),
                                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                                 singleLine = true,
                                 textStyle = MaterialTheme.typography.bodyLarge,
@@ -246,7 +248,7 @@ fun MealInputDialog(
                                     focusedBorderColor = Color(0xFF4CAF50),
                                     unfocusedBorderColor = Color(0xFFE0E0E0),
                                     focusedLabelColor = Color(0xFF4CAF50),
-                                    unfocusedLabelColor = Color(0xFF757575)
+                                    unfocusedLabelColor = MaterialTheme.colorScheme.onSurfaceVariant
                                 )
                             )
                             OutlinedTextField(
@@ -264,7 +266,7 @@ fun MealInputDialog(
                                 },
                                 modifier = Modifier
                                     .weight(1f)
-                                    .height(68.dp),  // CAO HƠN
+                                    .height(68.dp),
                                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                                 singleLine = true,
                                 textStyle = MaterialTheme.typography.bodyLarge,
@@ -272,7 +274,7 @@ fun MealInputDialog(
                                     focusedBorderColor = Color(0xFF4CAF50),
                                     unfocusedBorderColor = Color(0xFFE0E0E0),
                                     focusedLabelColor = Color(0xFF4CAF50),
-                                    unfocusedLabelColor = Color(0xFF757575)
+                                    unfocusedLabelColor = MaterialTheme.colorScheme.onSurfaceVariant
                                 )
                             )
                         }
@@ -302,7 +304,7 @@ fun MealInputDialog(
                             },
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .height(68.dp),  // CAO HƠN
+                                .height(68.dp),
                             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                             singleLine = true,
                             textStyle = MaterialTheme.typography.bodyLarge,
@@ -310,13 +312,13 @@ fun MealInputDialog(
                                 focusedBorderColor = Color(0xFF4CAF50),
                                 unfocusedBorderColor = Color(0xFFE0E0E0),
                                 focusedLabelColor = Color(0xFF4CAF50),
-                                unfocusedLabelColor = Color(0xFF757575)
+                                unfocusedLabelColor = MaterialTheme.colorScheme.onSurfaceVariant
                             )
                         )
                     }
                 }
 
-                // Buttons - LỚN HƠN
+                // Buttons
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
@@ -339,7 +341,6 @@ fun MealInputDialog(
                     Spacer(modifier = Modifier.width(20.dp))
                     TextButton(
                         onClick = {
-                            // ĐẢM BẢO STATE ĐƯỢC SỬ DỤNG TRỰC TIẾP
                             if (foodName.isNotBlank() && calories.isNotBlank()) {
                                 val newMeal = Meal(
                                     id = meal?.id ?: UUID.randomUUID().toString(),
