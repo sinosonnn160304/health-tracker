@@ -302,7 +302,7 @@ fun MetricCard(
                 shape = MaterialTheme.shapes.medium
             ),
         colors = CardDefaults.cardColors(
-            containerColor = Color.White
+            containerColor = MaterialTheme.colorScheme.surface
         )
     ) {
         Column(
@@ -322,14 +322,14 @@ fun MetricCard(
                         text = label,
                         style = MaterialTheme.typography.titleMedium,
                         fontWeight = FontWeight.Bold,
-                        color = Color(0xFF424242)
+                        color = MaterialTheme.colorScheme.onSurface
                     )
                     if (subtitle != null) {
                         Spacer(modifier = Modifier.height(4.dp))
                         Text(
                             text = subtitle,
                             style = MaterialTheme.typography.bodySmall,
-                            color = Color(0xFF757575)
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
                         )
                     }
                 }
