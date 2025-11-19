@@ -6,6 +6,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -101,13 +102,12 @@ fun MealTrackerScreen(
                             shape = MaterialTheme.shapes.large
                         ),
                     colors = CardDefaults.cardColors(
-                        containerColor = Color.White
+                        containerColor = MaterialTheme.colorScheme.surface
                     )
                 ) {
                     Column(
                         modifier = Modifier.padding(24.dp)
                     ) {
-                        // HÀNG NÀY CHỨA NGÀY THÁNG VÀ 2 NÚT MŨI TÊN
                         Row(
                             modifier = Modifier.fillMaxWidth(),
                             horizontalArrangement = Arrangement.SpaceBetween,
@@ -117,9 +117,8 @@ fun MealTrackerScreen(
                                 text = selectedDate.toString(),
                                 style = MaterialTheme.typography.titleLarge,
                                 fontWeight = FontWeight.Bold,
-                                color = Color(0xFF424242)
+                                color = MaterialTheme.colorScheme.onSurface
                             )
-                            // DI CHUYỂN 2 NÚT MŨI TÊN VÀO ĐÂY
                             Row {
                                 IconButton(
                                     onClick = { mealViewModel.selectDate(selectedDate.minusDays(1)) },
@@ -128,7 +127,7 @@ fun MealTrackerScreen(
                                         contentColor = Color(0xFF2E7D32)
                                     )
                                 ) {
-                                    Icon(Icons.Default.ArrowBack, "Previous day")
+                                    Icon(Icons.AutoMirrored.Filled.ArrowBack, "Previous day")
                                 }
                                 Spacer(modifier = Modifier.width(4.dp))
                                 IconButton(
@@ -153,7 +152,7 @@ fun MealTrackerScreen(
                                 Text(
                                     text = "Total Calories",
                                     style = MaterialTheme.typography.bodySmall,
-                                    color = Color(0xFF757575)
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant
                                 )
                                 Row(
                                     verticalAlignment = Alignment.CenterVertically
@@ -177,7 +176,7 @@ fun MealTrackerScreen(
                                         text = "$totalCalories cal",
                                         style = MaterialTheme.typography.titleMedium,
                                         fontWeight = FontWeight.Bold,
-                                        color = Color(0xFF424242)
+                                        color = MaterialTheme.colorScheme.onSurface
                                     )
                                 }
                             }
@@ -185,7 +184,7 @@ fun MealTrackerScreen(
                                 Text(
                                     text = "Macros",
                                     style = MaterialTheme.typography.bodySmall,
-                                    color = Color(0xFF757575)
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant
                                 )
                                 Row(
                                     verticalAlignment = Alignment.CenterVertically
@@ -194,7 +193,7 @@ fun MealTrackerScreen(
                                         text = "P:${totalProtein.toInt()}g C:${totalCarbs.toInt()}g F:${totalFat.toInt()}g",
                                         style = MaterialTheme.typography.bodyMedium,
                                         fontWeight = FontWeight.SemiBold,
-                                        color = Color(0xFF424242)
+                                        color = MaterialTheme.colorScheme.onSurface
                                     )
                                     Spacer(modifier = Modifier.width(8.dp))
                                     Box(
@@ -229,7 +228,7 @@ fun MealTrackerScreen(
                                 shape = MaterialTheme.shapes.large
                             ),
                         colors = CardDefaults.cardColors(
-                            containerColor = Color.White
+                            containerColor = MaterialTheme.colorScheme.surface
                         )
                     ) {
                         Column(
@@ -258,13 +257,13 @@ fun MealTrackerScreen(
                                 text = "No Meals Yet",
                                 style = MaterialTheme.typography.titleMedium,
                                 fontWeight = FontWeight.Bold,
-                                color = Color(0xFF424242)
+                                color = MaterialTheme.colorScheme.onSurface
                             )
                             Spacer(modifier = Modifier.height(8.dp))
                             Text(
                                 text = "Start tracking your meals to see them here",
                                 style = MaterialTheme.typography.bodyMedium,
-                                color = Color(0xFF757575),
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
                                 textAlign = androidx.compose.ui.text.style.TextAlign.Center
                             )
                         }
