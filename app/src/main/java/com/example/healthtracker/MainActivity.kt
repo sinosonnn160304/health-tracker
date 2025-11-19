@@ -27,8 +27,9 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         setContent {
-            HealthtrackerTheme {
-                val navController = rememberNavController()
+            var isDarkMode by remember { mutableStateOf(false) }
+            HealthtrackerTheme(darkTheme = isDarkMode) {
+            val navController = rememberNavController()
                 val loginViewModel: LoginViewModel = viewModel()
                 val mealViewModel: MealViewModel = viewModel()
                 val activityViewModel: ActivityViewModel = viewModel()
@@ -44,7 +45,9 @@ class MainActivity : ComponentActivity() {
                         loginViewModel = loginViewModel,
                         mealViewModel = mealViewModel,
                         activityViewModel = activityViewModel,
-                        goalViewModel = goalViewModel
+                        goalViewModel = goalViewModel,
+                        isDarkMode = isDarkMode,
+                        onThemeChange = { isDarkMode = it }
                     )
 
                     if (!isConnected) {
