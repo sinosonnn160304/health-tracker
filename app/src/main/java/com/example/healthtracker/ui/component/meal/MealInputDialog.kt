@@ -8,6 +8,7 @@ import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
@@ -40,15 +41,17 @@ fun MealInputDialog(
         onDismissRequest = onDismiss,
         properties = DialogProperties(usePlatformDefaultWidth = false)
     ) {
-        Surface(
+        Card(
             modifier = Modifier
-                .fillMaxWidth(0.95f)
-                .fillMaxHeight(0.9f)
-                .padding(12.dp),
-            shape = MaterialTheme.shapes.large,
-            color = Color.White,
-            shadowElevation = 20.dp
-        ) {
+                .fillMaxWidth()
+                .shadow(
+                    elevation = 8.dp,
+                    shape = MaterialTheme.shapes.large
+                ),
+            colors = CardDefaults.cardColors(
+                containerColor = MaterialTheme.colorScheme.surface
+            )
+        ){
             Column(
                 modifier = Modifier
                     .fillMaxSize()
@@ -95,11 +98,7 @@ fun MealInputDialog(
                                 focusedBorderColor = Color(0xFF4CAF50),
                                 unfocusedBorderColor = Color(0xFFE0E0E0),
                                 focusedLabelColor = Color(0xFF4CAF50),
-                                unfocusedLabelColor = Color(0xFF757575),
-                                focusedTextColor = MaterialTheme.colorScheme.onSurface,
-                                unfocusedTextColor = MaterialTheme.colorScheme.onSurface,
-                                focusedContainerColor = MaterialTheme.colorScheme.surface,
-                                unfocusedContainerColor = MaterialTheme.colorScheme.surface
+                                unfocusedLabelColor = MaterialTheme.colorScheme.onSurfaceVariant
                             )
                         )
                     }
@@ -132,11 +131,7 @@ fun MealInputDialog(
                                     focusedBorderColor = Color(0xFF4CAF50),
                                     unfocusedBorderColor = Color(0xFFE0E0E0),
                                     focusedLabelColor = Color(0xFF4CAF50),
-                                    unfocusedLabelColor = Color(0xFF757575),
-                                    focusedTextColor = MaterialTheme.colorScheme.onSurface,
-                                    unfocusedTextColor = MaterialTheme.colorScheme.onSurface,
-                                    focusedContainerColor = MaterialTheme.colorScheme.surface,
-                                    unfocusedContainerColor = MaterialTheme.colorScheme.surface
+                                    unfocusedLabelColor = MaterialTheme.colorScheme.onSurfaceVariant
                                 )
                             )
                             ExposedDropdownMenu(
@@ -193,11 +188,7 @@ fun MealInputDialog(
                                 focusedBorderColor = Color(0xFF4CAF50),
                                 unfocusedBorderColor = Color(0xFFE0E0E0),
                                 focusedLabelColor = Color(0xFF4CAF50),
-                                unfocusedLabelColor = Color(0xFF757575),
-                                focusedTextColor = MaterialTheme.colorScheme.onSurface,
-                                unfocusedTextColor = MaterialTheme.colorScheme.onSurface,
-                                focusedContainerColor = MaterialTheme.colorScheme.surface,
-                                unfocusedContainerColor = MaterialTheme.colorScheme.surface
+                                unfocusedLabelColor = MaterialTheme.colorScheme.onSurfaceVariant
                             )
                         )
                     }
@@ -231,11 +222,7 @@ fun MealInputDialog(
                                     focusedBorderColor = Color(0xFF4CAF50),
                                     unfocusedBorderColor = Color(0xFFE0E0E0),
                                     focusedLabelColor = Color(0xFF4CAF50),
-                                    unfocusedLabelColor = Color(0xFF757575),
-                                    focusedTextColor = MaterialTheme.colorScheme.onSurface,
-                                    unfocusedTextColor = MaterialTheme.colorScheme.onSurface,
-                                    focusedContainerColor = MaterialTheme.colorScheme.surface,
-                                    unfocusedContainerColor = MaterialTheme.colorScheme.surface
+                                    unfocusedLabelColor = MaterialTheme.colorScheme.onSurfaceVariant
                                 )
                             )
                             OutlinedTextField(
@@ -261,11 +248,7 @@ fun MealInputDialog(
                                     focusedBorderColor = Color(0xFF4CAF50),
                                     unfocusedBorderColor = Color(0xFFE0E0E0),
                                     focusedLabelColor = Color(0xFF4CAF50),
-                                    unfocusedLabelColor = Color(0xFF757575),
-                                    focusedTextColor = MaterialTheme.colorScheme.onSurface,
-                                    unfocusedTextColor = MaterialTheme.colorScheme.onSurface,
-                                    focusedContainerColor = MaterialTheme.colorScheme.surface,
-                                    unfocusedContainerColor = MaterialTheme.colorScheme.surface
+                                    unfocusedLabelColor = MaterialTheme.colorScheme.onSurfaceVariant
                                 )
                             )
                             OutlinedTextField(
@@ -291,11 +274,7 @@ fun MealInputDialog(
                                     focusedBorderColor = Color(0xFF4CAF50),
                                     unfocusedBorderColor = Color(0xFFE0E0E0),
                                     focusedLabelColor = Color(0xFF4CAF50),
-                                    unfocusedLabelColor = Color(0xFF757575),
-                                    focusedTextColor = MaterialTheme.colorScheme.onSurface,
-                                    unfocusedTextColor = MaterialTheme.colorScheme.onSurface,
-                                    focusedContainerColor = MaterialTheme.colorScheme.surface,
-                                    unfocusedContainerColor = MaterialTheme.colorScheme.surface
+                                    unfocusedLabelColor = MaterialTheme.colorScheme.onSurfaceVariant
                                 )
                             )
                         }
@@ -333,17 +312,13 @@ fun MealInputDialog(
                                 focusedBorderColor = Color(0xFF4CAF50),
                                 unfocusedBorderColor = Color(0xFFE0E0E0),
                                 focusedLabelColor = Color(0xFF4CAF50),
-                                unfocusedLabelColor = Color(0xFF757575),
-                                focusedTextColor = MaterialTheme.colorScheme.onSurface,
-                                unfocusedTextColor = MaterialTheme.colorScheme.onSurface,
-                                focusedContainerColor = MaterialTheme.colorScheme.surface,
-                                unfocusedContainerColor = MaterialTheme.colorScheme.surface
+                                unfocusedLabelColor = MaterialTheme.colorScheme.onSurfaceVariant
                             )
                         )
                     }
                 }
 
-                // Buttons 
+                // Buttons
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
