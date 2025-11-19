@@ -64,7 +64,6 @@ fun ActivityInputDialog(
                     modifier = Modifier.padding(bottom = 24.dp)
                 )
 
-                // SỬ DỤNG LAZYCOLUMN
                 LazyColumn(
                     modifier = Modifier
                         .fillMaxWidth()
@@ -84,7 +83,11 @@ fun ActivityInputDialog(
                                 focusedBorderColor = Color(0xFF4CAF50),
                                 unfocusedBorderColor = Color(0xFFE0E0E0),
                                 focusedLabelColor = Color(0xFF4CAF50),
-                                unfocusedLabelColor = Color(0xFF757575)
+                                unfocusedLabelColor = Color(0xFF757575),
+                                focusedTextColor = MaterialTheme.colorScheme.onSurface,
+                                unfocusedTextColor = MaterialTheme.colorScheme.onSurface,
+                                focusedContainerColor = MaterialTheme.colorScheme.surface,
+                                unfocusedContainerColor = MaterialTheme.colorScheme.surface
                             )
                         )
                     }
@@ -110,7 +113,11 @@ fun ActivityInputDialog(
                                     focusedBorderColor = Color(0xFF4CAF50),
                                     unfocusedBorderColor = Color(0xFFE0E0E0),
                                     focusedLabelColor = Color(0xFF4CAF50),
-                                    unfocusedLabelColor = Color(0xFF757575)
+                                    unfocusedLabelColor = Color(0xFF757575),
+                                    focusedTextColor = MaterialTheme.colorScheme.onSurface,
+                                    unfocusedTextColor = MaterialTheme.colorScheme.onSurface,
+                                    focusedContainerColor = MaterialTheme.colorScheme.surface,
+                                    unfocusedContainerColor = MaterialTheme.colorScheme.surface
                                 )
                             )
                             ExposedDropdownMenu(
@@ -181,7 +188,11 @@ fun ActivityInputDialog(
                                 focusedBorderColor = Color(0xFF4CAF50),
                                 unfocusedBorderColor = Color(0xFFE0E0E0),
                                 focusedLabelColor = Color(0xFF4CAF50),
-                                unfocusedLabelColor = Color(0xFF757575)
+                                unfocusedLabelColor = Color(0xFF757575),
+                                focusedTextColor = MaterialTheme.colorScheme.onSurface,
+                                unfocusedTextColor = MaterialTheme.colorScheme.onSurface,
+                                focusedContainerColor = MaterialTheme.colorScheme.surface,
+                                unfocusedContainerColor = MaterialTheme.colorScheme.surface
                             )
                         )
                     }
@@ -201,7 +212,11 @@ fun ActivityInputDialog(
                                 focusedBorderColor = Color(0xFF4CAF50),
                                 unfocusedBorderColor = Color(0xFFE0E0E0),
                                 focusedLabelColor = Color(0xFF4CAF50),
-                                unfocusedLabelColor = Color(0xFF757575)
+                                unfocusedLabelColor = Color(0xFF757575),
+                                focusedTextColor = MaterialTheme.colorScheme.onSurface,
+                                unfocusedTextColor = MaterialTheme.colorScheme.onSurface,
+                                focusedContainerColor = MaterialTheme.colorScheme.surface,
+                                unfocusedContainerColor = MaterialTheme.colorScheme.surface
                             )
                         )
                     }
@@ -227,7 +242,11 @@ fun ActivityInputDialog(
                                     focusedBorderColor = Color(0xFF4CAF50),
                                     unfocusedBorderColor = Color(0xFFE0E0E0),
                                     focusedLabelColor = Color(0xFF4CAF50),
-                                    unfocusedLabelColor = Color(0xFF757575)
+                                    unfocusedLabelColor = Color(0xFF757575),
+                                    focusedTextColor = MaterialTheme.colorScheme.onSurface,
+                                    unfocusedTextColor = MaterialTheme.colorScheme.onSurface,
+                                    focusedContainerColor = MaterialTheme.colorScheme.surface,
+                                    unfocusedContainerColor = MaterialTheme.colorScheme.surface
                                 )
                             )
                             ExposedDropdownMenu(
