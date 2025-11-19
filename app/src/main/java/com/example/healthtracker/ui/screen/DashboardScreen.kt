@@ -133,7 +133,7 @@ fun DashboardScreen(
                             elevation = 8.dp,
                             shape = MaterialTheme.shapes.large
                         ),
-                    colors = CardDefaults.cardColors(containerColor = Color.White)
+                    colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface)
                 ) {
                     Row(
                         modifier = Modifier
@@ -146,7 +146,7 @@ fun DashboardScreen(
                             text = selectedDate.toString(),
                             style = MaterialTheme.typography.titleMedium,
                             fontWeight = FontWeight.Bold,
-                            color = Color(0xFF424242)
+                            color = MaterialTheme.colorScheme.onSurface
                         )
                         Row {
                             IconButton(
@@ -207,7 +207,7 @@ fun DashboardScreen(
                         modifier = Modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.spacedBy(12.dp)
                     ) {
-                        // Protein - Màu pastel xanh lá
+                        // Protein
                         Box(
                             modifier = Modifier
                                 .weight(1f)
@@ -225,7 +225,7 @@ fun DashboardScreen(
                             )
                         }
 
-                        // Carbs - Màu pastel cam
+                        // Carbs
                         Box(
                             modifier = Modifier
                                 .weight(1f)
@@ -243,7 +243,7 @@ fun DashboardScreen(
                             )
                         }
 
-                        // Fat - Màu pastel đỏ
+                        // Fat
                         Box(
                             modifier = Modifier
                                 .weight(1f)
@@ -326,7 +326,7 @@ fun DashboardScreen(
                             elevation = 8.dp,
                             shape = MaterialTheme.shapes.large
                         ),
-                    colors = CardDefaults.cardColors(containerColor = Color.White)
+                    colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface)
                 ) {
                     Row(
                         modifier = Modifier
@@ -360,12 +360,12 @@ fun DashboardScreen(
                                 "Health Metrics",
                                 style = MaterialTheme.typography.titleMedium,
                                 fontWeight = FontWeight.Bold,
-                                color = Color(0xFF424242)
+                                color = MaterialTheme.colorScheme.onSurface
                             )
                             Text(
                                 "Track your health measurements",
                                 style = MaterialTheme.typography.bodySmall,
-                                color = Color(0xFF757575)
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
                             )
                         }
                         Icon(
@@ -385,7 +385,7 @@ fun DashboardScreen(
                             elevation = 8.dp,
                             shape = MaterialTheme.shapes.large
                         ),
-                    colors = CardDefaults.cardColors(containerColor = Color.White)
+                    colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface)
                 ) {
                     Row(
                         modifier = Modifier
@@ -419,12 +419,12 @@ fun DashboardScreen(
                                 "Health Goals",
                                 style = MaterialTheme.typography.titleMedium,
                                 fontWeight = FontWeight.Bold,
-                                color = Color(0xFF424242)
+                                color = MaterialTheme.colorScheme.onSurface
                             )
                             Text(
                                 "View and manage your health targets",
                                 style = MaterialTheme.typography.bodySmall,
-                                color = Color(0xFF757575)
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
                             )
                         }
                         Icon(
@@ -473,7 +473,7 @@ fun DashboardScreen(
                             elevation = 8.dp,
                             shape = MaterialTheme.shapes.large
                         ),
-                    colors = CardDefaults.cardColors(containerColor = Color.White)
+                    colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface)
                 ) {
                     Column(modifier = Modifier.padding(20.dp)) {
                         Row(
@@ -485,7 +485,7 @@ fun DashboardScreen(
                                 text = "Today's Meals",
                                 style = MaterialTheme.typography.titleMedium,
                                 fontWeight = FontWeight.Bold,
-                                color = Color(0xFF424242)
+                                color = MaterialTheme.colorScheme.onSurface
                             )
                             TextButton(
                                 onClick = onNavigateToMeals,
@@ -501,13 +501,13 @@ fun DashboardScreen(
                             Text(
                                 text = "No meals logged yet",
                                 style = MaterialTheme.typography.bodyMedium,
-                                color = Color(0xFF9E9E9E)
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
                             )
                         } else {
                             Text(
                                 text = "${meals.size} meals logged • $totalCalories kcal",
                                 style = MaterialTheme.typography.bodyLarge,
-                                color = Color(0xFF424242)
+                                color = MaterialTheme.colorScheme.onSurface
                             )
                         }
                     }
@@ -521,7 +521,7 @@ fun DashboardScreen(
                             elevation = 8.dp,
                             shape = MaterialTheme.shapes.large
                         ),
-                    colors = CardDefaults.cardColors(containerColor = Color.White)
+                    colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface)
                 ) {
                     Column(modifier = Modifier.padding(20.dp)) {
                         Row(
@@ -533,7 +533,7 @@ fun DashboardScreen(
                                 text = "Today's Activities",
                                 style = MaterialTheme.typography.titleMedium,
                                 fontWeight = FontWeight.Bold,
-                                color = Color(0xFF424242)
+                                color = MaterialTheme.colorScheme.onSurface
                             )
                             TextButton(
                                 onClick = onNavigateToActivity,
@@ -549,13 +549,14 @@ fun DashboardScreen(
                             Text(
                                 text = "No activities logged yet",
                                 style = MaterialTheme.typography.bodyMedium,
-                                color = Color(0xFF9E9E9E)
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
                             )
                         } else {
                             Text(
                                 text = "${activities.size} activities • $caloriesBurned cal burned",
                                 style = MaterialTheme.typography.bodyLarge,
-                                color = Color(0xFF424242)
+                                color = MaterialTheme.colorScheme.onSurface
+
                             )
                         }
                     }
