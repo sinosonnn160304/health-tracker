@@ -38,10 +38,12 @@ fun ActivityCard(
                 .fillMaxWidth()
                 .padding(20.dp),
             horizontalArrangement = Arrangement.SpaceBetween,
-            verticalAlignment = Alignment.CenterVertically
+            verticalAlignment = Alignment.Top
         ) {
             Column(
-                modifier = Modifier.weight(1f)
+                modifier = Modifier
+                    .weight(1f)
+                    .padding(end = 8.dp)
             ) {
                 Row(
                     verticalAlignment = Alignment.CenterVertically
@@ -98,7 +100,9 @@ fun ActivityCard(
                 Spacer(modifier = Modifier.height(12.dp))
 
                 Row(
-                    horizontalArrangement = Arrangement.spacedBy(16.dp)
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
                 ) {
                     ActivityBadge(
                         label = "Time",
@@ -122,22 +126,19 @@ fun ActivityCard(
                 }
             }
 
-            Column(
-                horizontalAlignment = Alignment.End
+            IconButton(
+                onClick = { showDeleteDialog = true },
+                modifier = Modifier.align(Alignment.Top),
+                colors = IconButtonDefaults.iconButtonColors(
+                    containerColor = Color(0xFFFFEBEE),
+                    contentColor = Color(0xFFF44336)
+                )
             ) {
-                IconButton(
-                    onClick = { showDeleteDialog = true },
-                    colors = IconButtonDefaults.iconButtonColors(
-                        containerColor = Color(0xFFFFEBEE),
-                        contentColor = Color(0xFFF44336)
-                    )
-                ) {
-                    Icon(
-                        imageVector = Icons.Default.Delete,
-                        contentDescription = "Delete",
-                        modifier = Modifier.size(20.dp)
-                    )
-                }
+                Icon(
+                    imageVector = Icons.Default.Delete,
+                    contentDescription = "Delete",
+                    modifier = Modifier.size(20.dp)
+                )
             }
         }
     }
