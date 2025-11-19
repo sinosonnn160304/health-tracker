@@ -9,6 +9,7 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.outlined.ExitToApp
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.outlined.ExitToApp
 import androidx.compose.material.icons.outlined.LightMode
@@ -93,13 +94,13 @@ fun UserProfileScreen(
                     .padding(horizontal = 24.dp)
             ) {
 
-                // PROFILE SECTION - Lùi lên trên
+                // PROFILE SECTION
                 Column(
                     horizontalAlignment = Alignment.CenterHorizontally,
                     modifier = Modifier
                         .weight(1f)
                         .wrapContentHeight(Alignment.Top)
-                        .padding(top = 40.dp) // Giảm khoảng cách từ top
+                        .padding(top = 40.dp)
                 ) {
                     // PROFILE CARD
                     Card(
@@ -111,7 +112,7 @@ fun UserProfileScreen(
                                 clip = true
                             ),
                         colors = CardDefaults.cardColors(
-                            containerColor = Color.White
+                            containerColor = MaterialTheme.colorScheme.surface
                         ),
                         elevation = CardDefaults.cardElevation(defaultElevation = 6.dp)
                     ) {
@@ -190,7 +191,7 @@ fun UserProfileScreen(
                                 text = if (userEmail.isNotEmpty()) userEmail else "Guest",
                                 fontSize = 16.sp,
                                 fontWeight = FontWeight.Medium,
-                                color = Color(0xFF424242),
+                                color = MaterialTheme.colorScheme.onSurface,
                                 modifier = Modifier.padding(horizontal = 16.dp),
                                 textAlign = androidx.compose.ui.text.style.TextAlign.Center
                             )
@@ -218,7 +219,7 @@ fun UserProfileScreen(
                         }
                     }
 
-                    Spacer(modifier = Modifier.height(24.dp)) // Giảm khoảng cách giữa 2 card
+                    Spacer(modifier = Modifier.height(24.dp))
 
                     // THEME TOGGLE CARD
                     Card(
@@ -230,7 +231,7 @@ fun UserProfileScreen(
                                 clip = true
                             ),
                         colors = CardDefaults.cardColors(
-                            containerColor = Color.White
+                            containerColor = MaterialTheme.colorScheme.surface
                         ),
                         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
                     ) {
@@ -266,12 +267,12 @@ fun UserProfileScreen(
                                     "Theme",
                                     fontSize = 16.sp,
                                     fontWeight = FontWeight.SemiBold,
-                                    color = Color(0xFF424242)
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant
                                 )
                                 Text(
                                     if (isDarkMode) "Dark mode" else "Light mode",
                                     fontSize = 12.sp,
-                                    color = Color(0xFF757575)
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant
                                 )
                             }
 
@@ -305,7 +306,7 @@ fun UserProfileScreen(
                                 clip = true
                             ),
                         colors = CardDefaults.cardColors(
-                            containerColor = Color.White
+                            containerColor = MaterialTheme.colorScheme.surface
                         ),
                         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
                     ) {
@@ -325,7 +326,7 @@ fun UserProfileScreen(
                                 contentAlignment = Alignment.Center
                             ) {
                                 Icon(
-                                    imageVector = Icons.Outlined.ExitToApp,
+                                    imageVector = Icons.AutoMirrored.Outlined.ExitToApp,
                                     contentDescription = "Logout",
                                     tint = Color(0xFFF44336),
                                     modifier = Modifier.size(20.dp)
@@ -339,12 +340,12 @@ fun UserProfileScreen(
                                     "Logout",
                                     fontSize = 16.sp,
                                     fontWeight = FontWeight.SemiBold,
-                                    color = Color(0xFF424242)
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant
                                 )
                                 Text(
                                     "Sign out from current account",
                                     fontSize = 12.sp,
-                                    color = Color(0xFF757575)
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant
                                 )
                             }
                         }
