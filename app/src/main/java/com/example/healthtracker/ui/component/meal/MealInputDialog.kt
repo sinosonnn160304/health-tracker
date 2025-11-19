@@ -51,7 +51,7 @@ fun MealInputDialog(
             colors = CardDefaults.cardColors(
                 containerColor = MaterialTheme.colorScheme.surface
             )
-        ){
+        ) {
             Column(
                 modifier = Modifier
                     .fillMaxSize()
