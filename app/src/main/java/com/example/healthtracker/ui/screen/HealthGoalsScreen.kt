@@ -31,6 +31,7 @@ import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
 import com.example.healthtracker.model.HealthGoal
 import com.example.healthtracker.viewmodel.GoalViewModel
+import java.util.UUID
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -259,7 +260,7 @@ fun HealthGoalsScreen(
     if (showEditDialog) {
         EditGoalDialog(
             currentGoal = goal ?: HealthGoal(
-                id = "",
+                id = UUID.randomUUID().toString(),
                 dailyCalorieGoal = 2000,
                 proteinGoal = 150f,
                 carbsGoal = 250f,
@@ -271,7 +272,13 @@ fun HealthGoalsScreen(
             ),
             onDismiss = { showEditDialog = false },
             onSave = { updatedGoal ->
-                goalViewModel.updateGoal(updatedGoal)
+                if (goal == null) {
+                    // Creating a new goal
+                    goalViewModel.setGoal(updatedGoal)
+                } else {
+                    // Updating existing goal
+                    goalViewModel.updateGoal(updatedGoal)
+                }
                 showEditDialog = false
             }
         )
