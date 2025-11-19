@@ -14,7 +14,9 @@ fun AppNavHost(
     loginViewModel: LoginViewModel,
     mealViewModel: MealViewModel,
     activityViewModel: ActivityViewModel,
-    goalViewModel: GoalViewModel
+    goalViewModel: GoalViewModel,
+    isDarkMode: Boolean,
+    onThemeChange: (Boolean) -> Unit
 ) {
     val userViewModel: UserViewModel = viewModel()
     NavHost(
@@ -164,7 +166,9 @@ fun AppNavHost(
                         popUpTo(Routes.UserProfile) { inclusive = true }
                     }
                 },
-                onNavigateBack = { navController.popBackStack() }
+                onNavigateBack = { navController.popBackStack() },
+                isDarkMode = isDarkMode,
+                onThemeChange = onThemeChange
             )
         }
 
