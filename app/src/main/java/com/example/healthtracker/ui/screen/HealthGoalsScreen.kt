@@ -107,7 +107,7 @@ fun HealthGoalsScreen(
                                 shape = MaterialTheme.shapes.large
                             ),
                         colors = CardDefaults.cardColors(
-                            containerColor = Color.White
+                            containerColor = Color(0xFF4CAF50)
                         )
                     ) {
                         Column(
@@ -120,12 +120,12 @@ fun HealthGoalsScreen(
                                 "Your Daily Goals",
                                 style = MaterialTheme.typography.headlineSmall,
                                 fontWeight = FontWeight.Bold,
-                                color = Color(0xFF2E7D32)
+                                color = Color.White
                             )
                             Text(
                                 "Track and achieve your health targets",
                                 style = MaterialTheme.typography.bodyMedium,
-                                color = Color(0xFF757575)
+                                color = Color.White.copy(alpha = 0.9f)
                             )
                         }
                     }
@@ -210,7 +210,7 @@ fun HealthGoalsScreen(
                                 shape = MaterialTheme.shapes.large
                             ),
                         colors = CardDefaults.cardColors(
-                            containerColor = Color.White
+                            containerColor = MaterialTheme.colorScheme.surface
                         )
                     ) {
                         Column(
@@ -230,20 +230,20 @@ fun HealthGoalsScreen(
                                 "No Health Goals Set",
                                 style = MaterialTheme.typography.headlineSmall,
                                 fontWeight = FontWeight.Bold,
-                                color = Color(0xFF424242),
+                                color = MaterialTheme.colorScheme.onSurface,
                                 textAlign = TextAlign.Center
                             )
                             Text(
                                 "Start your health journey by setting your personal goals",
                                 style = MaterialTheme.typography.bodyMedium,
-                                color = Color(0xFF757575),
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
                                 textAlign = TextAlign.Center
                             )
                             Button(
                                 onClick = { showEditDialog = true },
                                 colors = ButtonDefaults.buttonColors(
                                     containerColor = Color(0xFF4CAF50),
-                                    contentColor = Color.White
+                                    contentColor = MaterialTheme.colorScheme.surface
                                 ),
                                 modifier = Modifier.height(50.dp)
                             ) {
@@ -294,7 +294,7 @@ fun GoalCard(
                 shape = MaterialTheme.shapes.medium
             ),
         colors = CardDefaults.cardColors(
-            containerColor = Color.White
+            containerColor = MaterialTheme.colorScheme.surface
         )
     ) {
         Column(
@@ -324,7 +324,7 @@ fun GoalCard(
             Text(
                 title,
                 style = MaterialTheme.typography.bodyMedium,
-                color = Color(0xFF757575),
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
                 textAlign = TextAlign.Center
             )
 
@@ -333,7 +333,7 @@ fun GoalCard(
                     value,
                     style = MaterialTheme.typography.headlineSmall,
                     fontWeight = FontWeight.Bold,
-                    color = Color(0xFF424242)
+                    color = MaterialTheme.colorScheme.onSurface
                 )
                 Text(
                     unit,
@@ -363,7 +363,7 @@ fun EditGoalDialog(
                 .fillMaxHeight(0.85f)
                 .padding(16.dp),
             shape = MaterialTheme.shapes.large,
-            color = Color.White,
+            color = MaterialTheme.colorScheme.surface,
             shadowElevation = 16.dp
         ) {
             Column(
@@ -449,7 +449,7 @@ fun EditGoalDialog(
                     ) {
                         Text(
                             "Cancel",
-                            color = Color(0xFF757575),
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
                             style = MaterialTheme.typography.bodyLarge
                         )
                     }
@@ -497,16 +497,15 @@ fun GoalTextField(
         textStyle = MaterialTheme.typography.bodyLarge,
         colors = OutlinedTextFieldDefaults.colors(
             focusedBorderColor = Color(0xFF4CAF50),
-            unfocusedBorderColor = Color(0xFFE0E0E0),
-            focusedTextColor = Color(0xFF424242),
-            unfocusedTextColor = Color(0xFF424242),
+            unfocusedBorderColor = MaterialTheme.colorScheme.surfaceVariant,
+            focusedTextColor = MaterialTheme.colorScheme.onSurface,
+            unfocusedTextColor = MaterialTheme.colorScheme.onSurface,
             focusedLabelColor = Color(0xFF4CAF50),
-            unfocusedLabelColor = Color(0xFF757575)
+            unfocusedLabelColor = MaterialTheme.colorScheme.onSurfaceVariant
         )
     )
 }
 
-// State class để quản lý riêng biệt
 class DialogState(goal: HealthGoal) {
     var calories by mutableStateOf(goal.dailyCalorieGoal.toString())
     var protein by mutableStateOf(goal.proteinGoal.toString())
