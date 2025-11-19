@@ -33,9 +33,7 @@ fun MealCard(
                 shape = MaterialTheme.shapes.medium
             ),
         onClick = onEdit,
-        colors = CardDefaults.cardColors(
-            containerColor = Color.White
-        )
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface)
     ) {
         Row(
             modifier = Modifier
@@ -88,7 +86,7 @@ fun MealCard(
                     Text(
                         text = meal.mealType,
                         style = MaterialTheme.typography.labelMedium,
-                        color = Color(0xFF757575),
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
                         fontWeight = FontWeight.Medium
                     )
                 }
@@ -99,7 +97,7 @@ fun MealCard(
                     text = meal.foodName,
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.Bold,
-                    color = Color(0xFF424242)
+                    color = MaterialTheme.colorScheme.onSurface
                 )
 
                 Spacer(modifier = Modifier.height(12.dp))
@@ -151,7 +149,7 @@ fun MealCard(
                     Text(
                         text = "${meal.servingSize}g",
                         style = MaterialTheme.typography.bodySmall,
-                        color = Color(0xFF757575),
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
                         fontWeight = FontWeight.Medium
                     )
                 }
@@ -167,7 +165,7 @@ fun MealCard(
                 Text(
                     "Delete Meal?",
                     fontWeight = FontWeight.Bold,
-                    color = Color(0xFF424242)
+                    color = MaterialTheme.colorScheme.onSurface
                 )
             },
             text = { Text("Are you sure you want to delete '${meal.foodName}'?") },
@@ -188,7 +186,7 @@ fun MealCard(
                 TextButton(
                     onClick = { showDeleteDialog = false },
                     colors = ButtonDefaults.textButtonColors(
-                        contentColor = Color(0xFF757575)
+                        contentColor = MaterialTheme.colorScheme.onSurfaceVariant
                     )
                 ) {
                     Text("Cancel", fontWeight = FontWeight.Medium)
@@ -218,7 +216,7 @@ private fun NutritionBadge(
             text = value,
             style = MaterialTheme.typography.bodySmall,
             fontWeight = FontWeight.Medium,
-            color = Color(0xFF424242)
+            color = MaterialTheme.colorScheme.onSurface
         )
     }
 }
